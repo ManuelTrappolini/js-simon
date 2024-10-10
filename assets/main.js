@@ -22,41 +22,40 @@ console.log('it works');
 let randomNumbers = document.querySelector('.random_numbers')
 let countDown = document.querySelector('.countdown')
 let buttoncd = document.querySelector('.button')
-
+let seconds = 10;
 let clock = setInterval(countdown, 1000)
+let mainEL = document.querySelector('.main')
 
 
 //2 Raccoglimento dati( faccio eseguire math random sulla variabile random numbers e imposto il counddown di 30 secondi)
 
-buttoncd.addEventListener('click', function(){
+addEventListener('DOMContentLoaded', function(){
+    
     countdown(); 
-    randomNumbers5();
+    randomNumbers5()
+    
 })
 
 
 function randomNumber(n){
-    let numX = Math.floor((Math.random(n) * 30) + 1)
-    numX.innerHTML = numX
-    return numX
+    return Math.floor((Math.random() * n) + 1)
 }
 
-function randomNumbers5(nx){
+function randomNumbers5(){
 for(let i = 0; i < 5; i++){
-    const randomNumberX = randomNumber();
-    console.log(randomNumber())
-    const displayedNumber = `<p>${randomNumbers5}</p>`
+    const randomNumberX = randomNumber(30);
+    console.log(randomNumberX)
     document.body.innerHTML += `<p>${randomNumberX}</p>`
-    
 }
 }
+
 
 function countdown(){
-    let seconds = 10;
     if(seconds === 0){
         clearInterval(clock)
     }
     else{
-        countDown.innerHTML = seconds
+        countDown.innerHTML = seconds 
         seconds --;
     }
 }
