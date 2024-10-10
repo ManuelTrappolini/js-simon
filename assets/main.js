@@ -15,40 +15,57 @@ console.log('it works');
 // if/else
 // math.random
 //setInterval
-//fuction
+//function
 //for loop
 
 //1. Preparazione dati (Creo variabili)
 let randomNumbers = document.querySelector('.random_numbers')
 let countDown = document.querySelector('.countdown')
-let seconds = 10;
+let buttoncd = document.querySelector('.button')
+
 let clock = setInterval(countdown, 1000)
 
 
 //2 Raccoglimento dati( faccio eseguire math random sulla variabile random numbers e imposto il counddown di 30 secondi)
 
+buttoncd.addEventListener('click', function(){
+    countdown(); 
+    randomNumbers5();
+})
+
+
 function randomNumber(n){
     let numX = Math.floor((Math.random(n) * 30) + 1)
+    numX.innerHTML = numX
     return numX
 }
 
-function randomNumbers5(){
+function randomNumbers5(nx){
 for(let i = 0; i < 5; i++){
+    const randomNumberX = randomNumber();
     console.log(randomNumber())
+    const displayedNumber = `<p>${randomNumbers5}</p>`
+    document.body.innerHTML += `<p>${randomNumberX}</p>`
+    
 }
 }
 
 function countdown(){
+    let seconds = 10;
     if(seconds === 0){
         clearInterval(clock)
     }
     else{
         countDown.innerHTML = seconds
         seconds --;
-        /* randomNumbers.innerHTML =  */
     }
 }
 
+
+ //3. aggiungo un bottone per visualizzare numeri e far partire il cd del tempo
+
+
+ 
 
 /* function compareNumbers(array, number){
     for (let i = 0; i < array.length; i++) {
@@ -57,6 +74,6 @@ function countdown(){
     }
 } */
 
-randomNumbers5()
+
       
        
