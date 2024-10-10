@@ -19,15 +19,24 @@ console.log('it works');
 //for loop
 
 //1. Preparazione dati (Creo variabili)
-let randomNUmbers = document.querySelector('.random_numbers')
+let randomNumbers = document.querySelector('.random_numbers')
 let countDown = document.querySelector('.countdown')
-let seconds = 30;
+let seconds = 10;
 let clock = setInterval(countdown, 1000)
 
 
 //2 Raccoglimento dati( faccio eseguire math random sulla variabile random numbers e imposto il counddown di 30 secondi)
-randomNUmbers = Math.floor((Math.random() * 5) + 1);
-console.log(randomNUmbers);
+
+function randomNumber(n){
+    let numX = Math.floor((Math.random(n) * 30) + 1)
+    return numX
+}
+
+function randomNumbers5(){
+for(let i = 0; i < 5; i++){
+    console.log(randomNumber())
+}
+}
 
 function countdown(){
     if(seconds === 0){
@@ -36,6 +45,7 @@ function countdown(){
     else{
         countDown.innerHTML = seconds
         seconds --;
+        /* randomNumbers.innerHTML =  */
     }
 }
 
@@ -46,3 +56,7 @@ function countdown(){
         if (array[i].includes(number))
     }
 } */
+
+randomNumbers5()
+      
+       
